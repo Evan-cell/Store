@@ -16,16 +16,16 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>I</td>
-              <td>Iphone</td>
-              <td>Some image</td>
-              <td>This is a phone brand</td>
-              <th>100,000</th>
-              <td>I</td>
-              <td>100,000</td>
+            <tr *ngFor="let item of product; let i = index">
+              <td>{{i+1}}</td>
+              <td>{{item.title}}</td>
+              <td>{{item.image}}</td>
+              <td>{{item.description}}</td>
+              <th>{{item.price}}</th>
+              <td>{{item.quantity}}</td>
+              <td>{{item.total}}</td>
               <td>
-                <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                <button (click)="removeItem(item)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
               </td>
             </tr>
           </tbody>
