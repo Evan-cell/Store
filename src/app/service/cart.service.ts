@@ -23,12 +23,13 @@ public productList = new BehaviorSubject<any>([]);
     this.productList.next(this.cartItemList)
     this.getTotalprice();
   }
-  getTotalprice()
+  getTotalprice() : number
   {
     let grandTotal = 0;
     this.cartItemList.map((a:any)=>{
       grandTotal += a.total;
     })
+    return grandTotal
   }
   removeCartItem(product : any){
     this.cartItemList.map((a:any, index: any)=>{
@@ -36,6 +37,7 @@ public productList = new BehaviorSubject<any>([]);
         this.cartItemList.splice(index,1)
       }
     })
+
   }
   removeAllCart(){
     this.cartItemList = []
